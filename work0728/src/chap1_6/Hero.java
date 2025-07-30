@@ -1,11 +1,16 @@
-package chap1_5;
+package chap1_6;
 
 import java.util.Objects;
 
 public class Hero {
 	public String name;
+	public int hp;
 	
-
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(hp, name);
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -15,7 +20,7 @@ public class Hero {
 		if (getClass() != obj.getClass())
 			return false;
 		Hero other = (Hero) obj;
-		return Objects.equals(name, other.name);
+		return hp == other.hp && Objects.equals(name, other.name);
 	}
 	
 
